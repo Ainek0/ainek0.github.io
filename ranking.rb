@@ -42,24 +42,18 @@ class Client
 
 
   def balance(name)
-    private_request(URL[:balance], name: name)
+    private_request(URL[:balance], name: name).body
   end
 
   def stats_site
-    private_request(URL[:stats_site])
+    private_request(URL[:stats_site]).body
   end
 end
 
 client = Client.new
 
-# puts 'Ranking'
-
-# balance = client.balance('4c0f713a-a7ed-412b-e451-7cb1c9946e44')
-# stats_site = client.stats_site
-# puts 'BALANCE', balance.body
-# puts stats_site.body
 
 get '/hello' do 
-  puts params.inspect
+  puts client.balance(params[:user])
   'Hello Client'
 end
