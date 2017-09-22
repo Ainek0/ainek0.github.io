@@ -3,7 +3,7 @@
 require 'net/http'
 require 'sinatra'
 
-SECRET = 'pJn2BuyQLFXKjWSuspLEm4C1vBv4cTNs'
+SECRET = ENV['SECRET']
 URL = {
   host: 'https://api.coin-hive.com',
   balance: '/user/balance',
@@ -50,9 +50,16 @@ class Client
   end
 end
 
-# puts 'Ranking'
 client = Client.new
+
+# puts 'Ranking'
+
 # balance = client.balance('4c0f713a-a7ed-412b-e451-7cb1c9946e44')
-stats_site = client.stats_site
+# stats_site = client.stats_site
 # puts 'BALANCE', balance.body
-puts stats_site.body
+# puts stats_site.body
+
+get '/hello' do 
+  puts params.inspect
+  'Hello Client'
+end
